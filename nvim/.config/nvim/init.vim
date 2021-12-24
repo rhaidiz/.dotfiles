@@ -19,6 +19,7 @@ Plug 'simrat39/symbols-outline.nvim'
 
 " Git
 Plug 'https://github.com/airblade/vim-gitgutter.git'
+Plug 'https://tpope.io/vim/fugitive.git'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
