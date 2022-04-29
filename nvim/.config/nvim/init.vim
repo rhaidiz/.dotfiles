@@ -13,6 +13,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 " Plug 'ryanoasis/vim-devicons' Icons without colours
 Plug 'akinsho/bufferline.nvim'
+Plug 'themercorp/themer.lua'
 
 
 
@@ -70,7 +71,7 @@ set wrap " wrap lines
 set ffs=unix,dos,mac " EOL formart to try when editing\reading file in buffer
 set termguicolors " for 24bit color support
 syntax enable " enable syntax
-colorscheme gruvbox
+colorscheme themer_onedark
 "set guifont=Hack\ Nerd\ Font:h13 " font
 "set guifont=Monokai:h13 " font
 set guifont=Monospace\ 10
@@ -132,5 +133,5 @@ set termguicolors
 set updatetime=10
 
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
-autocmd BufWritePre *.go lua goimports(1000)
+" autocmd BufWritePre *.go lua goimports(1000)
 nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
