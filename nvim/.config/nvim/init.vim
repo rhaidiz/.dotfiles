@@ -15,16 +15,15 @@ Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim'
 
 
-Plug 'simrat39/symbols-outline.nvim'
 
 " Git
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://tpope.io/vim/fugitive.git'
 
+" LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 
-Plug 'vim-scripts/argtextobj.vim'
 
 " Completition
 Plug 'neovim/nvim-lspconfig'
@@ -40,6 +39,7 @@ Plug 'hrsh7th/vim-vsnip'
 
 Plug 'onsails/lspkind-nvim'
 
+Plug 'scrooloose/nerdtree'
 
 
 call plug#end()
@@ -62,7 +62,7 @@ set hlsearch " highlight search
 set colorcolumn=80 " set column to 80 chars
 set mouse=a " enable mouse support in case I'm lazy
 set autoindent " auto indent based on current line
-set expandtab " spaces for tabs
+" set expandtab " spaces for tabs
 set tabstop=4 " number of spaces for a tab
 set linespace=2
 set shiftwidth=2 " indentation when using << >> and ==
@@ -71,7 +71,9 @@ set ffs=unix,dos,mac " EOL formart to try when editing\reading file in buffer
 set termguicolors " for 24bit color support
 syntax enable " enable syntax
 colorscheme gruvbox
-set guifont=Hack\ Nerd\ Font:h13 " font
+"set guifont=Hack\ Nerd\ Font:h13 " font
+"set guifont=Monokai:h13 " font
+set guifont=Monospace\ 10
 set listchars=tab:\|\ ",extends:>,precedes:< " to use with set list to show special characters
 set list " show invisible chars
 set autoread " re-read a file that was changed outside of vim
@@ -101,7 +103,7 @@ nnoremap <C-h> <C-W><C-H>
 " behave like esc
 inoremap jk <esc>
 " disable esc
-inoremap <esc> <nop> 
+inoremap <Esc> <nop> 
 nnoremap <Up> <nop>    
 nnoremap <Left> <nop>  
 nnoremap <Right> <nop> 
@@ -128,3 +130,7 @@ let &t_EI .= "\<Esc>[?2004l"
 set termguicolors
 
 set updatetime=10
+
+autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.go lua goimports(1000)
+nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
