@@ -103,11 +103,11 @@ nnoremap <C-h> <C-W><C-H>
 " behave like esc
 inoremap jk <esc>
 " disable esc
-inoremap <Esc> <nop> 
-nnoremap <Up> <nop>    
-nnoremap <Left> <nop>  
-nnoremap <Right> <nop> 
-nnoremap <Down> <nop>  
+inoremap <Esc> <nop>
+nnoremap <Up> <nop>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+nnoremap <Down> <nop>
 
 " Move around buffers
 nnoremap ' :bp!<CR><CR>
@@ -131,6 +131,6 @@ set termguicolors
 
 set updatetime=10
 
-autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
-autocmd BufWritePre *.go lua goimports(1000)
-nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
+" autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
+" autocmd BufWritePre *.go lua goimports(1000)
+" nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
