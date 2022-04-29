@@ -1,5 +1,5 @@
 #!/bin/bash
-stow_foler=(nvim zsh tmux)
+stow_foler=(nvim fish tmux)
 
 for f in "${stow_foler[@]}"
 do
