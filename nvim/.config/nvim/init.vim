@@ -131,6 +131,6 @@ set termguicolors
 
 set updatetime=10
 
-" autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
-" autocmd BufWritePre *.go lua goimports(1000)
-" nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
+autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.go lua goimports(1000)
+nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
