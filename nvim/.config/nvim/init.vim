@@ -1,47 +1,34 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-lua/plenary.nvim' " required for telescope
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } " fzf for telescope. It requires gcc, clang and make
 
 " Theme
-Plug 'gruvbox-community/gruvbox'
-
-" Bufferline
-Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
-" Plug 'ryanoasis/vim-devicons' Icons without colours
-Plug 'akinsho/bufferline.nvim'
 Plug 'themercorp/themer.lua'
 
-
+" Bufferline
+Plug 'akinsho/bufferline.nvim'
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 
 " Git
-Plug 'https://github.com/airblade/vim-gitgutter.git'
-Plug 'https://tpope.io/vim/fugitive.git'
-
-" LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
-
+Plug 'https://github.com/airblade/vim-gitgutter.git' " shows line modification sign
+Plug 'https://tpope.io/vim/fugitive.git' " git plugin that does stuff
+Plug 'rbong/vim-flog' " git branch viewer
 
 " Completition
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
+Plug 'neovim/nvim-lspconfig' " common configuration for nvim build LSP
+Plug 'hrsh7th/nvim-cmp' " completition engine
+Plug 'hrsh7th/cmp-nvim-lsp' " source from where to get completition info, LSP in this case
 
-" For vsnip users.
+" For when doing autocomplete when pressing enter.
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 
-Plug 'onsails/lspkind-nvim'
-
-Plug 'scrooloose/nerdtree'
-
+" File tree plugin
+Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+Plug 'nvim-tree/nvim-tree.lua'
 
 call plug#end()
 
@@ -71,7 +58,7 @@ set wrap " wrap lines
 set ffs=unix,dos,mac " EOL formart to try when editing\reading file in buffer
 set termguicolors " for 24bit color support
 syntax enable " enable syntax
-colorscheme themer_onedark
+colorscheme themer_dracula
 "set guifont=Hack\ Nerd\ Font:h13 " font
 "set guifont=Monokai:h13 " font
 set guifont=Monospace\ 10
@@ -101,6 +88,8 @@ nnoremap <C-j> <C-W><C-J>
 nnoremap <C-k> <C-W><C-K>
 nnoremap <C-l> <C-W><C-L>
 nnoremap <C-h> <C-W><C-H>
+nnoremap <leader>j :cnext<CR>
+nnoremap <leader>k :cprev<CR>
 " behave like esc
 inoremap jk <esc>
 " disable esc
@@ -111,16 +100,19 @@ nnoremap <Right> <nop>
 nnoremap <Down> <nop>
 
 " Move around buffers
-nnoremap ' :bp!<CR><CR>
-nnoremap ì :bn!<CR><CR>
-" Move around tabs
-nnoremap è :tabp<CR><CR>
-nnoremap + :tabn<CR><CR>
+nnoremap è :bp!<CR><CR>
+nnoremap + :bn!<CR><CR>
+vnoremap <leader>y "*y
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " open config
 nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
 " reload vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr> 
+" Add code action mapping. Code action are warning and suggestion shown during
+" coding
+nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>
 " Telescope
 " }}}}
 "
@@ -132,6 +124,16 @@ set termguicolors
 
 set updatetime=10
 
+" format on save
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
-" autocmd BufWritePre *.go lua goimports(1000)
-nnoremap <silent> <C-k><C-B> :NERDTreeToggle<CR>
+" organize import at save
+autocmd BufWritePre *.go lua OrgImports(1000)
+
+" Fold git when opening Flog
+autocmd FileType git call FoldSyntax()
+function FoldSyntax()
+  setlocal foldmethod=syntax
+  set foldlevel=0
+endfunction
+
+nnoremap <leader>v :NvimTreeToggle<CR>
