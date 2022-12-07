@@ -5,6 +5,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-lua/plenary.nvim' " required for telescope
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } " fzf for telescope. It requires gcc, clang and make
 
+Plug 'https://github.com/kelly-lin/telescope-ag'
 " Theme
 Plug 'themercorp/themer.lua'
 
