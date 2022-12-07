@@ -17,9 +17,14 @@ format = """$env_var $all"""
 success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol = "[x](bold red)"
 
+[hostname]
+ssh_only =true
+format = "[SSH](bold blue) [$hostname](bold red) "
+disabled = false
+
 
 [directory]
-truncation_length = 1
+truncation_length = 2
 truncation_symbol = "…/"
 home_symbol = " ~"
 read_only_style = "197"
