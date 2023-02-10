@@ -31,6 +31,9 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 
+" better quickfix
+Plug 'kevinhwang91/nvim-bqf'
+
 call plug#end()
 
 
@@ -59,7 +62,7 @@ set wrap " wrap lines
 set ffs=unix,dos,mac " EOL formart to try when editing\reading file in buffer
 set termguicolors " for 24bit color support
 syntax enable " enable syntax
-colorscheme themer_dracula
+colorscheme themer_kanagawa
 "set guifont=Hack\ Nerd\ Font:h13 " font
 "set guifont=Monokai:h13 " font
 set guifont=Monospace\ 10
