@@ -15,7 +15,7 @@ Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 
 " Git
 Plug 'https://github.com/airblade/vim-gitgutter.git' " shows line modification sign
-Plug 'https://tpope.io/vim/fugitive.git' " git plugin that does stuff
+Plug 'tpope/vim-fugitive' " git plugin that does stuff
 Plug 'rbong/vim-flog' " git branch viewer
 
 " Completition
@@ -33,6 +33,9 @@ Plug 'nvim-tree/nvim-tree.lua'
 
 " better quickfix
 Plug 'kevinhwang91/nvim-bqf'
+
+" tree-sitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 

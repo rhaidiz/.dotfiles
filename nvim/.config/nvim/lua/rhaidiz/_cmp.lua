@@ -50,14 +50,16 @@ local cmp = require'cmp'
   })
 
   -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
+cmp.setup.cmdline(':', {
+  sources = {
+    {
+      name = 'cmdline',
+      option = {
+        ignore_cmds = {}
+      }
+    }
+  } 
+})
 
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
