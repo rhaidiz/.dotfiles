@@ -29,32 +29,38 @@ truncation_symbol = "…/"
 home_symbol = " ~"
 read_only_style = "197"
 read_only = "  "
+style = "bold green"
 format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-symbol = " "
-format = "via [$symbol$branch]($style) "
+# symbol = " "
+symbol = "🌱 "
+format = "on [$symbol$branch]($style) "
 # truncation_length = 4
 truncation_symbol = "…/"
-style = "bold fg:213"
 
 [git_status]
 format = '[\($all_status$ahead_behind\)]($style) '
 style = "red"
 conflicted = "🏳"
-up_to_date = " "
-untracked = " "
+up_to_date = "✅ "
+untracked = "⚠️  "
 ahead = "⇡${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+diverged = "↕️  ⬆️  ${ahead_count}⬇️  ${behind_count}"
 behind = "⇣${count}"
-stashed = " "
-modified = " "
+stashed = "🗳️  "
+modified = "✍️  "
 staged = '[++\($count\)](green)'
-renamed = "襁 "
-deleted = " "
+renamed = "🔧 "
+deleted = "🗑️ "
 
 [kubernetes]
 format = 'via [ﴱ $context\($namespace\)](bold purple) '
+disabled = true
 
 [terraform]
 format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
+disabled = true
+
+[aws]
+force_display = true
