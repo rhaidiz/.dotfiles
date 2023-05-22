@@ -76,6 +76,7 @@ vim.opt.scrolloff=15 -- Lines to keep above and below curso
 vim.opt.autoread=true -- re-read a file that was changed outside of vim
 vim.opt.list=true  -- show invisible chars
 vim.opt.listchars = { tab = '| ' }
+vim.opt.updatetime = 100 -- this is needed for gitgutter so that it updates the diff sign faster
 -- Indentation
 vim.opt.tabstop=2
 vim.opt.shiftwidth=2
@@ -121,8 +122,8 @@ vim.keymap.set('v','<leader>y','"*y', {noremap=true})
 vim.api.nvim_create_autocmd({'BufWritePre'}, {
   pattern = "*.go",
   callback = function(ev)
-	vim.lsp.buf.formatting()
-	OrgImports(1000)
+		vim.lsp.buf.format()
+		OrgImports(1000)
   end
 })
 
