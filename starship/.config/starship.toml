@@ -18,7 +18,7 @@ success_symbol = "[➜](bold green)" # The "success_symbol" segment is being set
 error_symbol = "[x](bold red)"
 
 [hostname]
-ssh_only = false
+ssh_only = true
 format = "via [SSH](bold blue) at [$hostname](bold red) "
 disabled = false
 
