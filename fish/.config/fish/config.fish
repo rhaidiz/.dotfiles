@@ -1,4 +1,4 @@
-if status is-interactive; and set -q SSH_CONNECTION
+if status is-interactive; and set -q SSH_CONNECTION; and not set -q TMUX
 	tmux new-session -A -s main
 end
 
