@@ -1,10 +1,10 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
+if status is-interactive; and set -q SSH_CONNECTION
+	tmux new-session -A -s main
 end
 
 # disable fish greeting
 set fish_greeting
 
-fish_config theme choose "Rosé Pine Moon"
+set -x HOMEBREW_NO_AUTO_UPDATE 1
 starship init fish | source
 
