@@ -26,7 +26,6 @@ disabled = false
 style_user = 'white bold'
 style_root = 'red bold'
 format = '[$user]($style) '
-show_always = true
 
 [directory]
 truncation_length = 2
