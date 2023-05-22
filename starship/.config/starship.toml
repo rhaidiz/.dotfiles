@@ -7,7 +7,7 @@ add_newline = true
 command_timeout = 1000
 
 # new config
-format = """$env_var $all"""
+format = """$env_var-$all"""
 
 # Change the default prompt characters
 [character]
@@ -26,7 +26,7 @@ disabled = false
 [directory]
 truncation_length = 2
 truncation_symbol = "…/"
-home_symbol = " ~"
+home_symbol = "🏠 ~"
 read_only_style = "197"
 read_only = "  "
 style = "bold green"
