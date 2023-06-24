@@ -19,7 +19,7 @@ error_symbol = "[x](bold red)"
 
 [hostname]
 ssh_only = true
-format = "via [SSH](bold blue) at [$hostname](bold red) "
+format = "via [SSH](bold blue) at [$hostname](bold fg:219) "
 disabled = false
 
 [username]
