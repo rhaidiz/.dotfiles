@@ -119,13 +119,13 @@ vim.keymap.set('v', '<leader>y', '"*y', { noremap = true })
 ---}}}
 
 --{{{AutoCmd
-vim.api.nvim_create_autocmd({
-	pattern = { "*.go", "*.lua" },
+vim.api.nvim_create_autocmd({'BufWritePre'}, {
+	pattern = "*.go",
 	callback = function(ev)
 		vim.lsp.buf.format()
 		OrgImports(1000)
 	end
-}, { 'BufWritePre' })
+})
 
 -- Fold git when opening Flog
 vim.api.nvim_create_autocmd({ "FileType" }, {
