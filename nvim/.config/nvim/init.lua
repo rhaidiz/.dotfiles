@@ -54,6 +54,7 @@ require('rose-pine').setup({
 		StatusLine = { fg = 'foam', bg = 'foam', blend = 10 },
 	}
 })
+require('ibl').setup{indent= {char = "▏"}}
 ---}}}
 
 --{{{ Settings
@@ -74,11 +75,11 @@ vim.opt.cursorline    = true                 -- highlight the cursor line
 vim.opt.colorcolumn   = "80"
 vim.opt.scrolloff     = 15                   -- Lines to keep above and below curso
 vim.opt.autoread      = true                 -- re-read a file that was changed outside of vim
-vim.opt.list          = true                 -- show invisible chars
-vim.opt.listchars     = { tab = '| ' }
+-- vim.opt.list          = true                 -- show invisible chars. Disable this to use ibl
+-- vim.opt.listchars     = { tab = '| ' } 	 -- disable this to use ibl
 vim.opt.updatetime    = 100                  -- this is needed for gitgutter so that it updates the diff sign faster
 -- Indentation
-vim.opt.tabstop       = 2
+vim.opt.tabstop       = 4
 vim.opt.shiftwidth    = 2
 vim.opt.linespace     = 2
 -- Search
