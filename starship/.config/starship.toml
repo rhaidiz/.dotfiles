@@ -30,7 +30,7 @@ format = '[$user]($style) '
 [directory]
 truncation_length = 2
 truncation_symbol = "…/"
-home_symbol = "🏠 ~"
+home_symbol = " ~"
 read_only_style = "197"
 read_only = "  "
 style = "bold green"
@@ -38,7 +38,7 @@ format = "[$path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
 # symbol = " "
-symbol = "🌱 "
+symbol = " "
 format = "on [$symbol$branch]($style) "
 # truncation_length = 4
 truncation_symbol = "…/"
@@ -46,17 +46,17 @@ truncation_symbol = "…/"
 [git_status]
 format = '[\($all_status$ahead_behind\)]($style) '
 style = "red"
-conflicted = "🏳"
-up_to_date = "✅ "
-untracked = "⚠️  "
+conflicted = " "
+up_to_date = " "
+untracked = " "
 ahead = "⇡${count}"
 diverged = "↕️  ⬆️  ${ahead_count}⬇️  ${behind_count}"
 behind = "⇣${count}"
-stashed = "🗳️  "
-modified = "✍️  "
+stashed = "󰆦 "
+modified = "󰂮 "
 staged = '[++\($count\)](green)'
-renamed = "🔧 "
-deleted = "🗑️ "
+renamed = "󰑕  "
+deleted = " "
 
 [kubernetes]
 format = 'via [ﴱ $context\($namespace\)](bold purple) '
@@ -65,6 +65,18 @@ disabled = true
 [terraform]
 format = "via [ terraform $version]($style) 壟 [$workspace]($style) "
 disabled = true
+
+[lua]
+format = "via [ $version]($style) "
+
+[golang]
+format = "via [Go $version]($style) "
+
+[python]
+format = "via [ $version]($style) "
+
+[nodejs]
+format = "via [ $version]($style) "
 
 [aws]
 force_display = true
