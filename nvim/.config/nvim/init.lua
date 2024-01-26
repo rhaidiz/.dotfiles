@@ -4,55 +4,66 @@ require('treesitter')
 require('lsp_config')
 require('_bufferline')
 require('rose-pine').setup({
-	--- @usage 'auto'|'main'|'moon'|'dawn'
-	variant = 'moon',
-	--- @usage 'main'|'moon'|'dawn'
-	dark_variant = 'main',
-	bold_vert_split = false,
-	dim_nc_background = false,
-	disable_background = false,
-	disable_float_background = false,
-	disable_italics = false,
+    variant = "moon", -- auto, main, moon, or dawn
+    dark_variant = "main", -- main, moon, or dawn
+    dim_inactive_windows = false,
+    extend_background_behind_borders = true,
 
-	--- @usage string hex value or named color from rosepinetheme.com/palette
-	groups = {
-		background = 'base',
-		background_nc = '_experimental_nc',
-		panel = 'surface',
-		panel_nc = 'base',
-		border = 'highlight_med',
-		comment = 'muted',
-		link = 'iris',
-		punctuation = 'subtle',
+    styles = {
+        bold = true,
+        italic = true,
+        transparency = false,
+    },
 
-		error = 'love',
-		hint = 'iris',
-		info = 'foam',
-		warn = 'gold',
+    groups = {
+        border = "muted",
+        link = "iris",
+        panel = "surface",
 
-		headings = {
-			h1 = 'iris',
-			h2 = 'foam',
-			h3 = 'rose',
-			h4 = 'gold',
-			h5 = 'pine',
-			h6 = 'foam',
-		}
-		-- or set all headings at once
-		-- headings = 'subtle'
-	},
+        error = "love",
+        hint = "iris",
+        info = "foam",
+        warn = "gold",
 
-	-- Change specific vim highlight groups
-	-- https://github.com/rose-pine/neovim/wiki/Recipes
-	highlight_groups = {
-		ColorColumn = { bg = 'overlay' },
+        git_add = "foam",
+        git_change = "rose",
+        git_delete = "love",
+        git_dirty = "rose",
+        git_ignore = "muted",
+        git_merge = "iris",
+        git_rename = "pine",
+        git_stage = "iris",
+        git_text = "rose",
+        git_untracked = "subtle",
 
-		-- Blend colours against the "base" background
-		CursorLine = { bg = 'foam', blend = 10 },
-		IncSearch = { bg = 'foam', fg = 'base' },
-		Search = { bg = 'gold', fg = 'base' },
-		StatusLine = { fg = 'foam', bg = 'foam', blend = 10 },
-	}
+        headings = {
+            h1 = "iris",
+            h2 = "foam",
+            h3 = "rose",
+            h4 = "gold",
+            h5 = "pine",
+            h6 = "foam",
+        },
+        -- Alternatively, set all headings at once.
+        -- headings = "subtle",
+    },
+
+    highlight_groups = {
+        -- Comment = { fg = "foam" },
+        -- VertSplit = { fg = "muted", bg = "muted" },
+    },
+
+    before_highlight = function(group, highlight, palette)
+        -- Disable all undercurls
+        -- if highlight.undercurl then
+        --     highlight.undercurl = false
+        -- end
+        --
+        -- Change palette colour
+        -- if highlight.fg == palette.pine then
+        --     highlight.fg = palette.foam
+        -- end
+    end,
 })
 require('ibl').setup{indent= {char = "▏"}}
 ---}}}
