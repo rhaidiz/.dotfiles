@@ -45,7 +45,7 @@ truncation_symbol = "…/"
 
 [git_status]
 format = '[\($all_status$ahead_behind\)]($style) '
-style = "red"
+style = "blue"
 conflicted = " "
 up_to_date = " "
 untracked = " "
@@ -68,15 +68,19 @@ disabled = true
 
 [lua]
 format = "via [ $version]($style) "
+disabled = true
 
 [golang]
 format = "via [Go $version]($style) "
+disabled = true
 
 [python]
 format = "via [ $version]($style) "
+disabled = true
 
 [nodejs]
 format = "via [ $version]($style) "
+disabled = true
 
 [aws]
 force_display = true
