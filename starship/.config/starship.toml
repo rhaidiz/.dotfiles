@@ -82,5 +82,8 @@ disabled = true
 format = "via [ $version]($style) "
 disabled = true
 
+[docker_context]
+disabled = true
+
 [aws]
 force_display = true
