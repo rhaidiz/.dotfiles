@@ -1,76 +1,10 @@
 --{{{Require
 require('plugins')
-require('treesitter')
-require('lsp_config')
-require('_bufferline')
-require('rose-pine').setup({
-    variant = "moon", -- auto, main, moon, or dawn
-    dark_variant = "main", -- main, moon, or dawn
-    dim_inactive_windows = false,
-    extend_background_behind_borders = true,
-
-    styles = {
-        bold = true,
-        italic = true,
-        transparency = false,
-    },
-
-    groups = {
-        border = "muted",
-        link = "iris",
-        panel = "surface",
-
-        error = "love",
-        hint = "iris",
-        info = "foam",
-        warn = "gold",
-
-        git_add = "foam",
-        git_change = "rose",
-        git_delete = "love",
-        git_dirty = "rose",
-        git_ignore = "muted",
-        git_merge = "iris",
-        git_rename = "pine",
-        git_stage = "iris",
-        git_text = "rose",
-        git_untracked = "subtle",
-
-        headings = {
-            h1 = "iris",
-            h2 = "foam",
-            h3 = "rose",
-            h4 = "gold",
-            h5 = "pine",
-            h6 = "foam",
-        },
-        -- Alternatively, set all headings at once.
-        -- headings = "subtle",
-    },
-
-    highlight_groups = {
-        -- Comment = { fg = "foam" },
-        -- VertSplit = { fg = "muted", bg = "muted" },
-    },
-
-    before_highlight = function(group, highlight, palette)
-        -- Disable all undercurls
-        -- if highlight.undercurl then
-        --     highlight.undercurl = false
-        -- end
-        --
-        -- Change palette colour
-        -- if highlight.fg == palette.pine then
-        --     highlight.fg = palette.foam
-        -- end
-    end,
-})
-require('ibl').setup{indent= {char = "▏"}}
+require('mapping')
 ---}}}
 
 --{{{ Settings
 vim.opt.number = true
-vim.g.mapleader = " "
 vim.opt.backspace = indent, eol, start -- don't remember
 vim.opt.wildmenu = true                -- Vim command completion expanded
 vim.opt.number = relativenumber        -- show line numbers hybrid mode
@@ -79,7 +13,7 @@ vim.opt.relativenumber = true
 vim.opt.foldmarker = "{{{,}}}"         -- set what to use as fold marker
 vim.opt.foldmethod = "marker"          -- set fold method to marker
 vim.opt.foldlevelstart = 20            -- decide how fold should be when loading in buffer
-vim.cmd('colorscheme rose-pine')
+vim.cmd('colorscheme rose-pine-moon')
 vim.opt.termguicolors = true
 vim.opt.backspace     = [[indent,eol,start]] -- to make the backspace work
 vim.opt.cursorline    = true                 -- highlight the cursor line
@@ -104,31 +38,6 @@ vim.opt.writebackup   = false -- disable backup
 vim.opt.swapfile      = false -- disable swap file
 --}}}
 
---{{{ Mappings
-vim.keymap.set('i', 'jk', '<Esc>', {})
-vim.keymap.set('i', '<Esc>', '<nop>', {})
-vim.keymap.set('n', '<Up>', '<nop>', {})
-vim.keymap.set('n', '<Down>', '<nop>', {})
-vim.keymap.set('n', '<Left>', '<nop>', {})
-vim.keymap.set('n', '<Right>', '<nop>', {})
-
--- Edit vim config
-vim.keymap.set('n', '<leader>ev', ':vsplit $MYVIMRC<cr>', { noremap = true })
-vim.keymap.set('n', '<leader>sv', ':source $MYVIMRC<cr>', { noremap = true })
-
--- Movements
-vim.keymap.set('n', '<C-j>', '<C-W><C-J>', { noremap = true })
-vim.keymap.set('n', '<C-k>', '<C-W><C-k>', { noremap = true })
-vim.keymap.set('n', '<C-l>', '<C-W><C-L>', { noremap = true })
-vim.keymap.set('n', '<C-h>', '<C-W><C-H>', { noremap = true })
-
-vim.keymap.set('n', 'è', ':bp!<CR><CR>', { noremap = true })
-vim.keymap.set('n', '+', ':bn!<CR><CR>', { noremap = true })
-
--- Copy to clipboard
-vim.keymap.set('v', '<leader>y', '"*y', { noremap = true })
-
----}}}
 
 --{{{AutoCmd
 vim.api.nvim_create_autocmd({'BufWritePre'}, {
