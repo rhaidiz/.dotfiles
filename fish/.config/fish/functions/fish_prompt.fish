@@ -1,38 +1,99 @@
 function fish_prompt
-end
+    set -l __last_command_exit_status $status
 
-status is-interactive || exit
+    if not set -q -g __fish_arrow_functions_defined
+        set -g __fish_arrow_functions_defined
+        function _git_branch_name
+            set -l branch (git symbolic-ref --quiet HEAD 2>/dev/null)
+            if set -q branch[1]
+                echo (string replace -r '^refs/heads/' '' $branch)
+            else
+                echo (git rev-parse --short HEAD 2>/dev/null)
+            end
+        end
 
-_tide_remove_unusable_items
+        function _is_git_dirty
+            not command git diff-index --cached --quiet HEAD -- &>/dev/null
+            or not command git diff --no-ext-diff --quiet --exit-code &>/dev/null
+        end
 
-# The first element in $$_tide_prompt_var is right prompt
-# All remaining ones are 'left' prompt (also upper right in 2-line prompts)
-set -g _tide_prompt_var _tide_prompt_$fish_pid
+        function _is_git_repo
+            type -q git
+            or return 1
+            git rev-parse --git-dir >/dev/null 2>&1
+        end
 
-function _tide_refresh_prompt --on-variable $_tide_prompt_var
-    set -g _tide_self_repainting # prevents us from creating a second background job
-    commandline --function repaint
-end
+        function _hg_branch_name
+            echo (hg branch 2>/dev/null)
+        end
 
-function fish_prompt
-    _tide_last_status=$status _tide_last_pipestatus=$pipestatus if not set -e _tide_self_repainting
-        jobs --query
-        fish --command "_tide_jobs_status=$status CMD_DURATION=$CMD_DURATION COLUMNS=$COLUMNS \
-            fish_bind_mode=$fish_bind_mode set -U $_tide_prompt_var (_tide_prompt)" &
-        builtin disown
+        function _is_hg_dirty
+            set -l stat (hg status -mard 2>/dev/null)
+            test -n "$stat"
+        end
 
-        command kill $_tide_last_pid 2>/dev/null
-        set -g _tide_last_pid $last_pid
+        function _is_hg_repo
+            fish_print_hg_root >/dev/null
+        end
+
+        function _repo_branch_name
+            _$argv[1]_branch_name
+        end
+
+        function _is_repo_dirty
+            _is_$argv[1]_dirty
+        end
+
+        function _repo_type
+            if _is_hg_repo
+                echo hg
+                return 0
+            else if _is_git_repo
+                echo git
+                return 0
+            end
+            return 1
+        end
     end
 
-    test "$tide_prompt_add_newline_before" = true && echo
-    string unescape $$_tide_prompt_var[1][2..]
-end
+    set -l cyan (set_color cyan)
+    set -l yellow (set_color yellow)
+    set -l red (set_color red)
+    set -l green (set_color green)
+    set -l blue (set_color blue)
+    set -l normal (set_color normal)
+    set -l magenta (set_color magenta)
+	set -l bold (set_color -o normal)
 
-function fish_right_prompt
-    string unescape $$_tide_prompt_var[1][1]
-end
+    set -l arrow_color "$green"
+    if test $__last_command_exit_status != 0
+        set arrow_color "$red"
+    end
 
-function _tide_on_fish_exit --on-event fish_exit
-    set -e $_tide_prompt_var
+    set -l arrow "$arrow_color➜ "
+    if fish_is_root_user
+        set arrow "$arrow_color# "
+    end
+
+    set -l cwd $green(basename (prompt_pwd))
+
+    set -l repo_info
+    if set -l repo_type (_repo_type)
+        set -l repo_branch $yellow(_repo_branch_name $repo_type)
+        set repo_info "$blue $repo_type:($repo_branch$blue)"
+
+        if _is_repo_dirty $repo_type
+            set -l dirty "$yellow ✗"
+            set repo_info "$repo_info$dirty"
+        end
+    end
+
+	set -l ssh ""
+	set -l username ""
+	if set -q SSH_CONNECTION
+	  set ssh $bold $(whoami) $bold"via " $blue "SSH " $normal "at " $magenta $(hostname) $normal ' | '
+	end
+
+    echo -e -n -s '\n' $ssh $cwd $repo_info $normal ' '
+	echo -e '\n'$arrow
 end

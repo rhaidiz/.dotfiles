@@ -6,5 +6,5 @@ end
 set fish_greeting
 
 set -x HOMEBREW_NO_AUTO_UPDATE 1
-starship init fish | source
+# starship init fish | source
 
