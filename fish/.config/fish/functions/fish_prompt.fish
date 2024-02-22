@@ -94,6 +94,11 @@ function fish_prompt
 	  set ssh $bold $(whoami) $bold"via " $blue "SSH " $normal "at " $magenta $(hostname) $normal ' | '
 	end
 
-    echo -e -n -s '\n' $ssh $cwd $repo_info $normal ' '
+	set -l cloud ""
+	if set -q AWS_PROFILE
+	  set cloud "󰅟 $magenta ($AWS_PROFILE) $normal"
+ 	end
+
+    echo -e -n -s '\n' $ssh $cwd $repo_info $normal ' ' $cloud
 	echo -e '\n'$arrow
 end
