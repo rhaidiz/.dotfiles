@@ -75,7 +75,7 @@ function fish_prompt
         set arrow "$arrow_color# "
     end
 
-    set -l cwd $green(basename (prompt_pwd))
+    set -l cwd $green(prompt_pwd --full-length-dirs=2 --dir-length=1)
 
     set -l repo_info
     if set -l repo_type (_repo_type)
@@ -91,7 +91,7 @@ function fish_prompt
 	set -l ssh ""
 	set -l username ""
 	if set -q SSH_CONNECTION
-	  set ssh $bold $(whoami) $bold"via " $blue "SSH " $normal "at " $magenta $(hostname) $normal ' | '
+	  set ssh $bold (whoami) $bold"via " $blue "SSH " $normal "at " $magenta (hostname) $normal ' | '
 	end
 
 	set -l cloud ""
