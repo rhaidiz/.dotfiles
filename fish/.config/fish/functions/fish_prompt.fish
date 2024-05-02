@@ -91,7 +91,7 @@ function fish_prompt
 	set -l ssh ""
 	set -l username ""
 	if set -q SSH_CONNECTION
-	  set ssh $bold (whoami) $bold"via " $blue "SSH " $normal "at " $magenta (hostname) $normal ' | '
+	  set ssh $bold (whoami) $bold" via " $blue "SSH " $normal "at " $magenta (hostname) $normal ' | '
 	end
 
 	set -l cloud ""
