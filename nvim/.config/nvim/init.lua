@@ -1,5 +1,5 @@
 --{{{Require
-require('plugins')
+require('lazy_plugins')
 require('mapping')
 ---}}}
 
