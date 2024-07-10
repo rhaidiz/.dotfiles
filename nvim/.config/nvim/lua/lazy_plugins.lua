@@ -38,4 +38,6 @@ require("lazy").setup({
   { 'hrsh7th/vim-vsnip' },
   -- blackline
   { "lukas-reineke/indent-blankline.nvim" },
+  -- auto dark mode
+  { "f-person/auto-dark-mode.nvim" }
 })

@@ -13,7 +13,7 @@ vim.opt.relativenumber = true
 vim.opt.foldmarker = "{{{,}}}"         -- set what to use as fold marker
 vim.opt.foldmethod = "marker"          -- set fold method to marker
 vim.opt.foldlevelstart = 20            -- decide how fold should be when loading in buffer
-vim.cmd('colorscheme rose-pine-moon')
+vim.cmd('colorscheme rose-pine')
 vim.opt.termguicolors = true
 vim.opt.backspace     = [[indent,eol,start]] -- to make the backspace work
 vim.opt.cursorline    = true                 -- highlight the cursor line
