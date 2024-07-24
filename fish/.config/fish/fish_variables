@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export PYENV_ROOT:/Users/federicodemeo/\x2epyenv
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/nvm\x2efish
@@ -7,7 +8,7 @@ SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR --export f:\x1d
 SETUVAR --export fish_color_autosuggestion:red
 SETUVAR --export fish_color_cancel:white
-SETUVAR --export fish_color_command:blue
+SETUVAR --export fish_color_command:magenta
 SETUVAR --export fish_color_comment:797593
 SETUVAR --export fish_color_cwd:cyan
 SETUVAR fish_color_cwd_root:red
@@ -21,7 +22,7 @@ SETUVAR --export fish_color_keyword:blue
 SETUVAR --export fish_color_normal:white
 SETUVAR --export fish_color_operator:white
 SETUVAR fish_color_option:\x1d
-SETUVAR --export fish_color_param:magenta
+SETUVAR --export fish_color_param:white
 SETUVAR --export fish_color_quote:yellow
 SETUVAR --export fish_color_redirection:green
 SETUVAR fish_color_search_match:\x2d\x2dbackground\x3dwhite
@@ -32,7 +33,7 @@ SETUVAR --export fish_color_valid_path:\x1d
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR --export fish_pager_color_background:\x1d
 SETUVAR --export fish_pager_color_completion:green
-SETUVAR --export fish_pager_color_description:797593
+SETUVAR --export fish_pager_color_description:yellow
 SETUVAR --export fish_pager_color_prefix:blue
 SETUVAR --export fish_pager_color_progress:cyan
 SETUVAR --export fish_pager_color_secondary_background:\x1d
@@ -44,5 +45,6 @@ SETUVAR --export fish_pager_color_selected_completion:white
 SETUVAR --export fish_pager_color_selected_description:white
 SETUVAR --export fish_pager_color_selected_prefix:blue
 SETUVAR fish_user_paths:/opt/homebrew/bin\x1e/usr/local/opt/ruby/bin
+SETUVAR --export macOS_Theme:dark
 SETUVAR nvm_data:/Users/federicodemeo/\x2elocal/share/nvm
 SETUVAR nvm_mirror:https\x3a//nodejs\x2eorg/dist
