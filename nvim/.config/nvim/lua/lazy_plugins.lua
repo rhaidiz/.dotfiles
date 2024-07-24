@@ -39,5 +39,11 @@ require("lazy").setup({
   -- blackline
   { "lukas-reineke/indent-blankline.nvim" },
   -- auto dark mode
-  { "f-person/auto-dark-mode.nvim" }
+  { "f-person/auto-dark-mode.nvim" },
+  -- hardtime
+  {
+     "m4xshen/hardtime.nvim",
+     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+     opts = {}
+  },
 })
