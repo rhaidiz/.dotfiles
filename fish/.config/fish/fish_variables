@@ -6,45 +6,46 @@ SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions
 SETUVAR _fisher_plugins:jorgebucaran/nvm\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR --export f:\x1d
-SETUVAR --export fish_color_autosuggestion:red
-SETUVAR --export fish_color_cancel:white
-SETUVAR --export fish_color_command:magenta
-SETUVAR --export fish_color_comment:797593
-SETUVAR --export fish_color_cwd:cyan
+SETUVAR --export fish_color_autosuggestion:9ca0b0
+SETUVAR --export fish_color_cancel:d20f39
+SETUVAR --export fish_color_command:1e66f5
+SETUVAR --export fish_color_comment:8c8fa1
+SETUVAR --export fish_color_cwd:df8e1d
 SETUVAR fish_color_cwd_root:red
-SETUVAR --export fish_color_end:797593
-SETUVAR --export fish_color_error:red
-SETUVAR --export fish_color_escape:green
+SETUVAR --export fish_color_end:fe640b
+SETUVAR --export fish_color_error:d20f39
+SETUVAR --export fish_color_escape:e64553
+SETUVAR fish_color_gray:9ca0b0
 SETUVAR fish_color_history_current:\x2d\x2dbold
-SETUVAR --export fish_color_host:blue
-SETUVAR --export fish_color_host_remote:magenta
-SETUVAR --export fish_color_keyword:blue
-SETUVAR --export fish_color_normal:white
-SETUVAR --export fish_color_operator:white
-SETUVAR fish_color_option:\x1d
-SETUVAR --export fish_color_param:white
-SETUVAR --export fish_color_quote:yellow
-SETUVAR --export fish_color_redirection:green
-SETUVAR fish_color_search_match:\x2d\x2dbackground\x3dwhite
-SETUVAR --export fish_color_selection:\x2d\x2dreverse
-SETUVAR fish_color_status:red
-SETUVAR --export fish_color_user:yellow
+SETUVAR --export fish_color_host:1e66f5
+SETUVAR --export fish_color_host_remote:40a02b
+SETUVAR --export fish_color_keyword:d20f39
+SETUVAR --export fish_color_normal:4c4f69
+SETUVAR --export fish_color_operator:ea76cb
+SETUVAR fish_color_option:40a02b
+SETUVAR --export fish_color_param:dd7878
+SETUVAR --export fish_color_quote:40a02b
+SETUVAR --export fish_color_redirection:ea76cb
+SETUVAR fish_color_search_match:\x2d\x2dbackground\x3dccd0da
+SETUVAR --export fish_color_selection:\x2d\x2dbackground\x3dccd0da
+SETUVAR fish_color_status:d20f39
+SETUVAR --export fish_color_user:179299
 SETUVAR --export fish_color_valid_path:\x1d
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR --export fish_pager_color_background:\x1d
-SETUVAR --export fish_pager_color_completion:green
-SETUVAR --export fish_pager_color_description:yellow
-SETUVAR --export fish_pager_color_prefix:blue
-SETUVAR --export fish_pager_color_progress:cyan
+SETUVAR --export fish_pager_color_completion:4c4f69
+SETUVAR --export fish_pager_color_description:9ca0b0
+SETUVAR --export fish_pager_color_prefix:ea76cb
+SETUVAR --export fish_pager_color_progress:9ca0b0
 SETUVAR --export fish_pager_color_secondary_background:\x1d
 SETUVAR --export fish_pager_color_secondary_completion:\x1d
 SETUVAR --export fish_pager_color_secondary_description:\x1d
 SETUVAR --export fish_pager_color_secondary_prefix:\x1d
 SETUVAR --export fish_pager_color_selected_background:\x1d
-SETUVAR --export fish_pager_color_selected_completion:white
-SETUVAR --export fish_pager_color_selected_description:white
-SETUVAR --export fish_pager_color_selected_prefix:blue
+SETUVAR --export fish_pager_color_selected_completion:\x1d
+SETUVAR --export fish_pager_color_selected_description:\x1d
+SETUVAR --export fish_pager_color_selected_prefix:\x1d
 SETUVAR fish_user_paths:/opt/homebrew/bin\x1e/usr/local/opt/ruby/bin
-SETUVAR --export macOS_Theme:dark
+SETUVAR --export macOS_Theme:light
 SETUVAR nvm_data:/Users/federicodemeo/\x2elocal/share/nvm
 SETUVAR nvm_mirror:https\x3a//nodejs\x2eorg/dist
