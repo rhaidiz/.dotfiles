@@ -88,7 +88,7 @@ nvim_lsp.gopls.setup {
 nvim_lsp.terraformls.setup {}
 
 -- TypeScript/JavaScript
-nvim_lsp.tsserver.setup {
+nvim_lsp.ts_ls.setup {
 	cmd = { "typescript-language-server", "--stdio" }
 }
 
