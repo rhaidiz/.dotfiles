@@ -24,6 +24,7 @@ require("lazy").setup({
   { 'nvim-tree/nvim-web-devicons' },
   -- colorscheme
   { 'rose-pine/neovim', name = 'rose-pine' },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   -- Git
   { 'tpope/vim-fugitive' },
   { 'rbong/vim-flog' },
