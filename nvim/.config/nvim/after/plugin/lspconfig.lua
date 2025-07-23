@@ -94,7 +94,8 @@ nvim_lsp.ts_ls.setup {
 
 -- Python
 nvim_lsp.pyright.setup {
-	cmd = { "pyright-langserver", "--stdio" }
+	cmd = { "pyright-langserver", "--stdio" },
+	on_attach = on_attach,
 }
 
 require 'lspconfig'.lua_ls.setup {
