@@ -36,6 +36,8 @@ vim.opt.smartcase     = true  -- overwrite ignorecase if uppercase letters appea
 vim.opt.backup        = false -- disable backup
 vim.opt.writebackup   = false -- disable backup
 vim.opt.swapfile      = false -- disable swap file
+-- Statusline
+vim.opt.statusline	  = "%F %m%=%-10.{&filetype}"
 --}}}
 
 
