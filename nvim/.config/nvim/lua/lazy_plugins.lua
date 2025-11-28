@@ -25,6 +25,7 @@ require("lazy").setup({
   -- colorscheme
   { 'rose-pine/neovim', name = 'rose-pine' },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { 'maxmx03/solarized.nvim' },
   -- Git
   { 'tpope/vim-fugitive' },
   { 'rbong/vim-flog' },
