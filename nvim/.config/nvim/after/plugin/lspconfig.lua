@@ -1,8 +1,3 @@
-local nvim_lsp = require('lspconfig')
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -66,8 +61,8 @@ function OrgImports(wait_ms)
 	end
 end
 
--- Gopls setup
-nvim_lsp.gopls.setup {
+-- {{{ Gopls setup
+vim.lsp.config( "gopls", {
 	cmd = { 'gopls' },
 	-- for postfix snippets and analyzers
 	capabilities = capabilities,
@@ -82,23 +77,27 @@ nvim_lsp.gopls.setup {
 		},
 	},
 	on_attach = on_attach,
-}
+})
+vim.lsp.enable("gopls")
+-- }}}
 
--- Terraform
-nvim_lsp.terraformls.setup {}
-
--- TypeScript/JavaScript
-nvim_lsp.ts_ls.setup {
+-- {{{ TypeScript/JavaScript
+vim.lsp.config( "javascript", {
 	cmd = { "typescript-language-server", "--stdio" }
-}
+})
+vim.lsp.enable("javascript")
+-- }}}
 
--- Python
-nvim_lsp.pyright.setup {
+-- {{{ Python
+vim.lsp.config( "python", {
 	cmd = { "pyright-langserver", "--stdio" },
 	on_attach = on_attach,
-}
+})
+vim.lsp.enable("python")
+-- }}}
 
-require 'lspconfig'.lua_ls.setup {
+-- {{{ Lua
+vim.lsp.config("lua", {
 	on_init = function(client)
 		local path = client.workspace_folders[1].name
 		if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
@@ -127,4 +126,6 @@ require 'lspconfig'.lua_ls.setup {
 		end
 		return true
 	end
-}
+})
+vim.lsp.enable("lua")
+-- }}}
