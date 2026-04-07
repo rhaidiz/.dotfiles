@@ -61,6 +61,29 @@ function OrgImports(wait_ms)
 	end
 end
 
+-- {{ Swift setup
+vim.lsp.config("sourcekit", {
+  cmd = {"sourcekit-lsp"},
+  filetypes = { "swift", "objc", "objcpp", "c", "cpp" },
+  capabilities = {
+	textDocument = {
+	  diagnostic = {
+		dynamicRegistration = true,
+		relatedDocumentSupport = true
+	  }
+	},
+	workspace = {
+	  didChangeWatchedFiles = {
+		dynamicRegistration = true
+	  }
+	}
+  },
+  on_attach = on_attach
+})
+vim.lsp.enable('sourcekit')
+
+-- }}
+
 -- {{{ Gopls setup
 vim.lsp.config( "gopls", {
 	cmd = { 'gopls' },
