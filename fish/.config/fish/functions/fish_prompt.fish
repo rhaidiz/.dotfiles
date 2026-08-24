@@ -96,9 +96,16 @@ function fish_prompt
 
 	set -l cloud ""
 	if set -q AWS_PROFILE
-	  set cloud "󰅟 $magenta ($AWS_PROFILE) $normal"
+	  set cloud "$magenta 󰅟 ($AWS_PROFILE) $normal"
  	end
 
-    echo -e -n -s '\n' $ssh $cwd $repo_info $normal ' ' $cloud
+	set -l docker_context ""
+	if set -q DOCKER_CONTEXT
+	  if test $DOCKER_CONTEXT != "default"
+	    set docker_context "$blue  ($DOCKER_CONTEXT) $normal"
+	  end
+	end
+
+    echo -e -n -s '\n' $ssh $cwd $repo_info $normal $cloud $docker_context
 	echo -e '\n'$arrow
 end
