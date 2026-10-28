@@ -39,4 +39,4 @@ cmp.setup.cmdline(':', {
 
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-vim.lsp.set_log_level("off")
+vim.lsp.log.set_level("off")
